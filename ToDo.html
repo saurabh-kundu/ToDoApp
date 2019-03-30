@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	ng-app = "ToDoModule">
+<head>
+    <meta charset="utf-8" />
+    <title>To Do App</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src='App.js'></script>
+</head>
+<body>
+	
+	<h2>ToDo App</h2>
+	<div ng-controller = "ToDoAppCtrl as ctrl">
+		<p>Add a ToDo :</p>
+		<input type = "text" ng-model = "ctrl.newTodo"></input>
+		<button ng-click = "ctrl.add()">Add</button>
+		<br>
+		<br>
+		<p>Your ToDos:</p>
+		<button ng-hide = "ctrl.editButtonClicked" ng-click ="ctrl.edit()">Edit</button>
+		<button ng-show = "ctrl.editButtonClicked" ng-click ="ctrl.edit()">Done</button>
+			<ol>
+				<li ng-repeat = "todo in ctrl.todos track by $index">
+					<span ng-hide="ctrl.editButtonClicked" ng-bind = "todo"></span>
+					<input ng-model = "todo" ng-show = "ctrl.editButtonClicked" type="text"></input>
+					<button ng-hide = "ctrl.editButtonClicked" ng-click = "ctrl.delete($index)">Delete</button>
+				</li>
+			</ol>
+	</div>
+</body>
+</html>
