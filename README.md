@@ -1,2 +1,2 @@
 # ToDoApp
-This is a simple ToDoApp madeusing Angular
+This is a simple ToDoApp made using Angular
